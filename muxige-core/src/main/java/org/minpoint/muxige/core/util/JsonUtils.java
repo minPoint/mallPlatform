@@ -4,12 +4,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.minpoint.muxige.core.exception.MuXiGeException;
 import org.minpoint.muxige.core.exception.SystemStatusEnum;
+
+import java.util.List;
 
 /*
  * @ClassName JsonUtils
@@ -84,9 +87,11 @@ public class JsonUtils {
      * @param <T>  泛型
      * @return 转换对象
      */
-    public static <T> T toObject(@NonNull Object obj, Class<T> cls) {
+    public static <T> List<T> listToList(@NonNull Object obj, Class<T> cls) {
         try {
-            return JsonUtils.toObject(JsonUtils.toJson(obj), cls);
+            JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, cls);
+            String json = JsonUtils.toJson(obj);
+            return objectMapper.readValue(json, javaType);
         } catch (Exception e) {
             log.error("Json转换异常。", new MuXiGeException(SystemStatusEnum.OBJ_TRANSFORM_ERROR));
         }

@@ -16,4 +16,6 @@ import org.minpoint.muxige.core.pojo.BaseEntity;
 @Setter
 @TableName(value = "mall_info", schema = "mxg_store_center")
 public class MallEntity extends BaseEntity {
+
+
 }

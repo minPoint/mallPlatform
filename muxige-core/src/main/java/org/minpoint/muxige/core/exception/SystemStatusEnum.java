@@ -7,7 +7,7 @@ package org.minpoint.muxige.core.exception;
  * @version 1.00
  * @since 2021/12/5 14:25
  */
-public enum SystemStatusEnum implements ErrorEnumInterface{
+public enum SystemStatusEnum implements ConstantsEnumInterface{
 
 
     SYSTEM_ERROR_SUCCESS(0x7FFFFFFF, "系统繁忙，请稍后再试"),

@@ -8,4 +8,7 @@ package org.minpoint.muxige.core.pojo;
  * @since 2021/12/5 13:42
  */
 public class BaseVo {
+
+    private String id;
+
 }

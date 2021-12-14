@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: qyb
     password: qyb@muxige..
-    url: jdbc:mysql://101.35.200.252:8819?useUnicode=true&useSSL=false
+    url: jdbc:mysql://101.35.200.252:8819?useUnicode=true&useSSL=false&characterEncoding=utf-8
     #    filters: stat,wall,log4j
     druid:
       # 启动程序时，在连接池中初始化多少个连接
@@ -56,9 +56,9 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mappers/*Mapper.xml
   # 自定义xml文件中用到的实体类路径
-  type-aliases-package: com.minpoint.muxige.entities
+  type-aliases-package: org.minpoint.muxige.*.core.pojo.entity
   # 类型处理器
-  type-handlers-package: com.minpoint.muxige.handler.mybatis
+  type-handlers-package: org.minpoint.muxige.handler.mybatis
   global-config:
     db-config:
       # 逻辑删除配置

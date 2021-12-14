@@ -29,9 +29,9 @@ public class MuXiGeException extends RuntimeException{
         this.errorMsg = errorMsg;
     }
 
-    public MuXiGeException(SystemStatusEnum systemStatusEnum) {
-        super(systemStatusEnum.toString());
-        this.errorCode = systemStatusEnum.getCode();
-        this.errorMsg = systemStatusEnum.getMsg();
+    public MuXiGeException(ConstantsEnumInterface constantsEnum) {
+        super(constantsEnum.toString());
+        this.errorCode = constantsEnum.getCode();
+        this.errorMsg = constantsEnum.getMsg();
     }
 }

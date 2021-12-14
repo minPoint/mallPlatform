@@ -7,6 +7,7 @@ import org.minpoint.muxige.core.pojo.BaseBo;
 import org.minpoint.muxige.core.pojo.BaseEntity;
 import org.minpoint.muxige.core.pojo.BaseQuery;
 import org.minpoint.muxige.core.util.JsonUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -22,11 +23,8 @@ import java.util.Map;
  */
 public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends BaseQuery> implements MuXiGeManager<T, B, Q> {
 
+    @Autowired
     private MuXiGeMapper<T, B, Q> mapper;
-
-    public MuXiGeManagerImpl(MuXiGeMapper<T, B, Q> mapper) {
-        this.mapper = mapper;
-    }
 
     @Override
     public int insert(T entity) {
@@ -36,6 +34,11 @@ public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends
     @Override
     public int deleteById(Serializable id) {
         return mapper.deleteById(id);
+    }
+
+    @Override
+    public int deleteByMap(Map<String, Object> columnMap) {
+        return mapper.deleteByMap(columnMap);
     }
 
     @Override
@@ -59,21 +62,23 @@ public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends
     }
 
     @Override
-    public B selectById(Serializable id) {
-        T entity = mapper.selectById(id);
-        return (B) JsonUtils.toObject(entity, BaseBo.class);
+    public T selectById(Serializable id) {
+        return mapper.selectById(id);
     }
 
     @Override
-    public List<B> selectBatchIds(Collection<? extends Serializable> idList) {
-        List<T> entityList = mapper.selectBatchIds(idList);
-        return (List<B>) JsonUtils.toObject(entityList, BaseBo.class);
+    public List<T> selectBatchIds(Collection<? extends Serializable> idList) {
+        return mapper.selectBatchIds(idList);
     }
 
     @Override
-    public B selectOne(Wrapper<T> queryWrapper) {
-        T entity = mapper.selectOne(queryWrapper);
-        return (B) JsonUtils.toObject(entity, BaseBo.class);
+    public T selectOne(Wrapper<T> queryWrapper) {
+        return mapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public List<T> selectByMap(Map<String, Object> columnMap) {
+        return mapper.selectByMap(columnMap);
     }
 
     @Override
@@ -82,9 +87,8 @@ public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends
     }
 
     @Override
-    public List<B> selectList(Wrapper<T> queryWrapper) {
-        List<T> entityList = mapper.selectList(queryWrapper);
-        return (List<B>) JsonUtils.toObject(entityList, BaseBo.class);
+    public List<T> selectList(Wrapper<T> queryWrapper) {
+        return mapper.selectList(queryWrapper);
     }
 
     @Override
