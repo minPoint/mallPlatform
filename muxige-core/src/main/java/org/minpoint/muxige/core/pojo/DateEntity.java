@@ -20,10 +20,10 @@ public class DateEntity extends BaseEntity{
      * 创建时间
      */
     @TableField( value = "create_time", fill = FieldFill.INSERT)
-    private Integer createTime;
+    private Long createTime;
     /**
      * 修改时间
      */
     @TableField( value = "modify_time", fill = FieldFill.UPDATE)
-    private Integer modifyTime;
+    private Long modifyTime;
 }

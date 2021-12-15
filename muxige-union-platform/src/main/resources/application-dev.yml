@@ -5,7 +5,8 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
-    driver-class-name: com.mysql.jdbc.Driver
+#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: qyb
     password: qyb@muxige..
     url: jdbc:mysql://101.35.200.252:8819?useUnicode=true&useSSL=false&characterEncoding=utf-8
