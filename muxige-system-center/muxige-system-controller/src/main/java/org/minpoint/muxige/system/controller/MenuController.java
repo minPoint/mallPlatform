@@ -1,7 +1,9 @@
 package org.minpoint.muxige.system.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import org.apache.ibatis.annotations.Delete;
 import org.minpoint.muxige.core.controller.MuXiGeController;
+import org.minpoint.muxige.core.pojo.Result;
 import org.minpoint.muxige.core.util.JsonUtils;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
@@ -30,12 +32,22 @@ public class MenuController extends MuXiGeController {
     @PostMapping("add")
     public Object addMenu(@RequestBody MenuVo vo){
         MenuBo menuBo = BeanUtil.copyProperties(vo, MenuBo.class);
-        return menuService.addMenu(menuBo);
+        return Result.set(menuService.addMenu(menuBo));
     }
 
-    @GetMapping("list")
+    @DeleteMapping("delete")
+    public Object deleteMenu(String id){
+        return Result.set(menuService.delMenu(id));
+    }
+
+    @GetMapping("list/tree")
     public Object listMenu(MenuQuery query){
-        return menuService.listMenuVoTree(query);
+        return Result.set(JsonUtils.listToList(menuService.listMenuVoTree(query), MenuVo.class));
+    }
+
+    @GetMapping("list/paging")
+    public Object listPaging(MenuQuery query){
+        return Result.set(menuService.listMenu(query));
     }
 
 }

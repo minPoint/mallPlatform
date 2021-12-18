@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.minpoint.muxige.system.core.mapper.MenuMapper">
+    <resultMap id="pagingMap" type="org.minpoint.muxige.system.core.pojo.bo.MenuBo">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="listPaging" resultMap="pagingMap">
+        SELECT
+            info.db_id,
+            info.id,
+            info.create_time,
+            info.modify_time,
+            info.parent_id,
+            info.icon,
+            info.name,
+            info.component,
+            info.title,
+            info.path,
+            info.deleted,
+            info.level,
+            info.home_page
+        FROM
+            mxg_system_center.menu_info AS info
+        <where>
+            <if test="id != null and id != ''">
+                AND info.id = #{id}
+            </if>
+            <if test="parentId != null and parentId != ''">
+                AND info.parent_id = #{parentId}
+            </if>
+            <if test="name != null and name != ''">
+                AND info.name = #{name}
+            </if>
+            <if test="component != null and component != ''">
+                AND info.component = #{component}
+            </if>
+            <if test="title != null and title != ''">
+                AND info.title = #{title}
+            </if>
+            <if test="level != null and level != ''">
+                AND info.level = #{level}
+            </if>
+            <if test="homePage != null and homePage != ''">
+                AND info.home_page = #{homePage}
+            </if>
+        </where>
+    </select>
+
+</mapper>

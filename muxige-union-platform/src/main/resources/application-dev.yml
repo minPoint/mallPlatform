@@ -55,7 +55,7 @@ spring:
 
 # Mybatis-plus
 mybatis-plus:
-  mapper-locations: classpath*:/mappers/*Mapper.xml
+  mapper-locations: classpath*:/mapper/*Mapper.xml
   # 自定义xml文件中用到的实体类路径
   type-aliases-package: org.minpoint.muxige.*.core.pojo.entity
   # 类型处理器
@@ -64,8 +64,9 @@ mybatis-plus:
     db-config:
       # 逻辑删除配置
       logic-delete-field: deleted
-      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
-      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      logic-delete-value: -1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 1 # 逻辑未删除值(默认为 0)
+#      sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector ，3.1版本后不用添加逻辑拦截器，默认注入
       # 字段策略，为null时忽略
     #      update-strategy: ignored
     # 字段策略,[0:忽略null,1：非null判断，2：非空判断]

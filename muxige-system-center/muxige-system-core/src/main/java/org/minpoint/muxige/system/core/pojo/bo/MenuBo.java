@@ -17,9 +17,13 @@ import java.util.List;
 @Setter
 public class MenuBo extends BaseBo {
     /**
-     * 页面名称
+     * router名称
      */
     private String name;
+    /**
+     * 导航名称
+     */
+    private String title;
     /**
      * 路径
      */
@@ -36,6 +40,14 @@ public class MenuBo extends BaseBo {
      * 组件
      */
     private String component;
+    /**
+     * 登记
+     */
+    private Integer level;
+    /**
+     * 是否主页
+     */
+    private Integer homePage;
     /**
      * 子集菜单
      */

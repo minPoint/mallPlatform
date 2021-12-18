@@ -5,6 +5,7 @@ import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
 import org.minpoint.muxige.system.core.pojo.vo.MenuVo;
 
+import java.awt.*;
 import java.util.List;
 
 /*
@@ -23,6 +24,15 @@ public interface MenuService {
      * @return int
      **/
     int addMenu(MenuBo menuBo);
+    
+    /**
+     * @Author BabyBlackSkin
+     * @Description //TODO 根据id删除 菜单
+     * @Date 0:34 2021/12/18
+     * @Param [id]
+     * @return int
+     **/
+    int delMenu(String id);
 
     /**
      * @Author BabyBlackSkin
@@ -31,5 +41,12 @@ public interface MenuService {
      * @Param [query] 查询模板
      * @return java.util.List<org.minpoint.muxige.system.core.pojo.bo.MenuBo>
      **/
-    List<MenuVo> listMenuVoTree(MenuQuery query);
+    List<MenuBo> listMenuVoTree(MenuQuery query);
+
+    /**
+     * 查询菜单
+     * @param query 查询模板
+     * @return 集合
+     */
+    ListData<MenuBo> listMenu(MenuQuery query);
 }

@@ -1,12 +1,14 @@
 package org.minpoint.muxige.core.manager.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.github.pagehelper.PageHelper;
 import org.minpoint.muxige.core.manager.MuXiGeManager;
 import org.minpoint.muxige.core.mapper.MuXiGeMapper;
 import org.minpoint.muxige.core.pojo.BaseBo;
 import org.minpoint.muxige.core.pojo.BaseEntity;
 import org.minpoint.muxige.core.pojo.BaseQuery;
 import org.minpoint.muxige.core.util.JsonUtils;
+import org.minpoint.muxige.core.util.PagingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -62,37 +64,41 @@ public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends
     }
 
     @Override
-    public T selectById(Serializable id) {
+    public T getById(Serializable id) {
         return mapper.selectById(id);
     }
 
     @Override
-    public List<T> selectBatchIds(Collection<? extends Serializable> idList) {
+    public List<T> listBatchIds(Collection<? extends Serializable> idList) {
         return mapper.selectBatchIds(idList);
     }
 
     @Override
-    public T selectOne(Wrapper<T> queryWrapper) {
+    public T getOne(Wrapper<T> queryWrapper) {
         return mapper.selectOne(queryWrapper);
     }
 
     @Override
-    public List<T> selectByMap(Map<String, Object> columnMap) {
+    public List<T> listByMap(Map<String, Object> columnMap) {
+        PagingUtils.defaultPaging();
         return mapper.selectByMap(columnMap);
     }
 
     @Override
-    public Integer selectCount(Wrapper<T> queryWrapper) {
+    public Integer getCount(Wrapper<T> queryWrapper) {
+        PagingUtils.defaultPaging();
         return mapper.selectCount(queryWrapper);
     }
 
     @Override
-    public List<T> selectList(Wrapper<T> queryWrapper) {
+    public List<T> listPaging(Wrapper<T> queryWrapper) {
+        PagingUtils.defaultPaging();
         return mapper.selectList(queryWrapper);
     }
 
     @Override
     public List<B> listPaging(Q query) {
+        PagingUtils.autoPaging(query);
         return mapper.listPaging(query);
     }
 }

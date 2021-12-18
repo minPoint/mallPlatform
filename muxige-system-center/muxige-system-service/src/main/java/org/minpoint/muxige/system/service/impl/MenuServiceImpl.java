@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.minpoint.muxige.core.constants.LogicConstants;
 import org.minpoint.muxige.core.exception.MuXiGeException;
 import org.minpoint.muxige.core.exception.SystemStatusEnum;
+import org.minpoint.muxige.core.page.ListData;
 import org.minpoint.muxige.core.util.JsonUtils;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
@@ -12,6 +13,7 @@ import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
 import org.minpoint.muxige.system.core.pojo.vo.MenuVo;
 import org.minpoint.muxige.system.manager.MenuManager;
 import org.minpoint.muxige.system.service.MenuService;
+import org.minpoint.muxige.system.service.constants.MenuConstants;
 import org.minpoint.muxige.system.service.util.MenuUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,7 @@ import java.util.List;
  * @since 2021/12/8 17:56
  */
 @Service
-public class MenuServiceImpl implements MenuService {
+public class MenuServiceImpl implements MenuService{
 
     @Autowired
     private MenuManager menuManager;
@@ -44,8 +46,13 @@ public class MenuServiceImpl implements MenuService {
         if(null == menuEntity){
             throw new MuXiGeException(SystemStatusEnum.NULL_ERROR);
         }
-        menuEntity.setStatus(LogicConstants.LOGIC_EXISTENCE);
+//        menuEntity.setDeleted(LogicConstants.LOGIC_EXISTENCE);
         return menuManager.insert(menuEntity);
+    }
+
+    @Override
+    public int delMenu(String id) {
+        return menuManager.deleteById(id);
     }
 
     /**
@@ -56,12 +63,15 @@ public class MenuServiceImpl implements MenuService {
      * @return java.util.List<org.minpoint.muxige.system.core.pojo.bo.MenuBo>
      **/
     @Override
-    public List<MenuVo> listMenuVoTree(MenuQuery query) {
+    public List<MenuBo> listMenuVoTree(MenuQuery query) {
         QueryWrapper<MenuEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("status", LogicConstants.LOGIC_EXISTENCE);
-        List<MenuEntity> menuEntity = menuManager.selectList(queryWrapper);
+        List<MenuEntity> menuEntity = menuManager.listPaging(queryWrapper);
         List<MenuBo> menuBoList = JsonUtils.listToList(menuEntity, MenuBo.class);
-        List<MenuBo> menuTree = MenuUtils.getMenuTree(menuBoList);
-        return JsonUtils.listToList(menuTree, MenuVo.class);
+        return MenuUtils.getMenuTree(menuBoList, MenuConstants.MenuLevel.ONE);
+    }
+
+    @Override
+    public ListData<MenuBo> listMenu(MenuQuery query) {
+        return ListData.setData(menuManager.listPaging(query));
     }
 }

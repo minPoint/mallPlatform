@@ -33,17 +33,17 @@ public interface MuXiGeManager<T extends BaseEntity, B extends BaseBo, Q extends
 
     int update( T entity, Wrapper<T> updateWrapper);
 
-    T selectById(Serializable id);
+    T getById(Serializable id);
 
-    List<T> selectBatchIds(Collection<? extends Serializable> idList);
+    List<T> listBatchIds(Collection<? extends Serializable> idList);
 
-    T selectOne(Wrapper<T> queryWrapper);
+    T getOne(Wrapper<T> queryWrapper);
 
-    List<T> selectByMap(Map<String, Object> columnMap);
+    List<T> listByMap(Map<String, Object> columnMap);
 
-    Integer selectCount(Wrapper<T> queryWrapper);
+    Integer getCount(Wrapper<T> queryWrapper);
 
-    List<T> selectList(Wrapper<T> queryWrapper);
+    List<T> listPaging(Wrapper<T> queryWrapper);
 
     List<B> listPaging(Q query);
 }

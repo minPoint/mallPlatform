@@ -1,36 +1,29 @@
 package org.minpoint.muxige.system.service.constants;
 
-import org.minpoint.muxige.core.exception.ConstantsEnumInterface;
-
 /*
- * @ClassName MenuConstants
+ * @ClassName MenuConstatns
  * @Description
  * @author BabyBlackSkin
  * @version 1.00
- * @since 2021/12/8 23:24
+ * @since 2021/12/18 16:01
  */
-public enum MenuConstants implements ConstantsEnumInterface {
-
-    INSERT_FAILED(0x0001,"新增失败"),
-
-    ;
-
-    private int code;
-
-    private String msg;
-
-    MenuConstants(int code, String msg) {
-        this.code = code;
-        this.msg = msg;
+public interface MenuConstants {
+    /**
+     * 是否是主页
+     */
+    interface HomePageConstants {
+        int HOME_PAGE = 1;
+        int NOT_HOME_PAGE = 0;
     }
 
-    @Override
-    public int getCode() {
-        return this.code;
+    /**
+     * 菜单等级
+     */
+    interface MenuLevel {
+        int ONE = 1;
+        int TWO = 2;
+        int Three = 3;
+
     }
 
-    @Override
-    public String getMsg() {
-        return this.msg;
-    }
 }
