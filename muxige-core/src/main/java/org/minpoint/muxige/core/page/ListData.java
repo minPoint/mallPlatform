@@ -20,27 +20,28 @@ import java.util.List;
 @Setter
 public class ListData<T>{
 
-    private List<T> list;
+    private List<T> data;
 
     private PageInfo pageInfo;
 
-    public static <T> ListData<T> setData(List list, Class<T> tClass){
+    private static  <T> ListData<T> setPage(List list){
         ListData<T> listData = new ListData<>();
         if(list instanceof Page){
             Page<T> page = (Page<T>) list;
             listData.setPageInfo(new PageInfo(page.getTotal(), page.getPageSize(), page.getPageNum(), page.getPages()));
         }
-        listData.setList(JsonUtils.listToList(list, tClass));
         return listData;
     }
 
-    public static <T> ListData<T> setData(List list){
-        ListData<T> listData = new ListData<>();
-        if(list instanceof Page){
-            Page<T> page = (Page<T>) list;
-            listData.setPageInfo(new PageInfo(page.getTotal(), page.getPageSize(), page.getPageNum(), page.getPages()));
-        }
-        listData.setList(list);
+    public static <T> ListData<T> setContent(List list, Class<T> tClass){
+        ListData listData = ListData.setPage(list);
+        listData.setData(JsonUtils.listToList(list, tClass));
+        return listData;
+    }
+
+    public static <T> ListData<T> setContent(List list){
+        ListData listData = ListData.setPage(list);
+        listData.setData(list);
         return listData;
     }
 

@@ -2,7 +2,6 @@ package org.minpoint.muxige.system.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.minpoint.muxige.core.constants.LogicConstants;
 import org.minpoint.muxige.core.exception.MuXiGeException;
 import org.minpoint.muxige.core.exception.SystemStatusEnum;
 import org.minpoint.muxige.core.page.ListData;
@@ -10,7 +9,6 @@ import org.minpoint.muxige.core.util.JsonUtils;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
 import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
-import org.minpoint.muxige.system.core.pojo.vo.MenuVo;
 import org.minpoint.muxige.system.manager.MenuManager;
 import org.minpoint.muxige.system.service.MenuService;
 import org.minpoint.muxige.system.service.constants.MenuConstants;
@@ -35,7 +33,7 @@ public class MenuServiceImpl implements MenuService{
 
     /**
      * @Author BabyBlackSkin
-     * @Description //TODO 新增菜单
+     * @Description  新增菜单
      * @Date 23:22 2021/12/8
      * @Param [menuBo]
      * @return int
@@ -46,7 +44,6 @@ public class MenuServiceImpl implements MenuService{
         if(null == menuEntity){
             throw new MuXiGeException(SystemStatusEnum.NULL_ERROR);
         }
-//        menuEntity.setDeleted(LogicConstants.LOGIC_EXISTENCE);
         return menuManager.insert(menuEntity);
     }
 
@@ -57,7 +54,7 @@ public class MenuServiceImpl implements MenuService{
 
     /**
      * @Author BabyBlackSkin
-     * @Description //TODO 查询菜单配置，并以树形结构返回
+     * @Description  查询菜单配置，并以树形结构返回
      * @Date 21:49 2021/12/8
      * @Param [query] 查询模板
      * @return java.util.List<org.minpoint.muxige.system.core.pojo.bo.MenuBo>
@@ -72,6 +69,6 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public ListData<MenuBo> listMenu(MenuQuery query) {
-        return ListData.setData(menuManager.listPaging(query));
+        return ListData.setContent(menuManager.listPaging(query));
     }
 }

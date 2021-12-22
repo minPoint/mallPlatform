@@ -18,7 +18,7 @@ import java.util.List;
 public interface MenuService {
     /**
      * @Author BabyBlackSkin
-     * @Description //TODO 新增菜单
+     * @Description  新增菜单
      * @Date 23:28 2021/12/8
      * @Param [menuBo]
      * @return int
@@ -27,7 +27,7 @@ public interface MenuService {
     
     /**
      * @Author BabyBlackSkin
-     * @Description //TODO 根据id删除 菜单
+     * @Description  根据id删除 菜单
      * @Date 0:34 2021/12/18
      * @Param [id]
      * @return int
@@ -36,7 +36,7 @@ public interface MenuService {
 
     /**
      * @Author BabyBlackSkin
-     * @Description //TODO 查询菜单配置，并以树形结构返回
+     * @Description  查询菜单配置，并以树形结构返回
      * @Date 21:49 2021/12/8
      * @Param [query] 查询模板
      * @return java.util.List<org.minpoint.muxige.system.core.pojo.bo.MenuBo>
