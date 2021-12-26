@@ -1,8 +1,9 @@
 package org.minpoint.muxige.core.manager;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import org.minpoint.muxige.core.pojo.BaseBo;
-import org.minpoint.muxige.core.pojo.BaseEntity;
+import org.minpoint.muxige.core.pojo.BaseModel;
+import org.minpoint.muxige.core.pojo.bo.BaseBo;
+import org.minpoint.muxige.core.pojo.entity.BaseEntity;
 import org.minpoint.muxige.core.pojo.BaseQuery;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.util.Map;
  * @version 1.00
  * @since 2021/12/5 14:09
  */
-public interface MuXiGeManager<T extends BaseEntity, B extends BaseBo, Q extends BaseQuery> {
+public interface MuXiGeManager<T extends BaseEntity, B extends BaseBo, M extends BaseModel> {
 
     int insert(T entity);
 
@@ -45,5 +46,5 @@ public interface MuXiGeManager<T extends BaseEntity, B extends BaseBo, Q extends
 
     List<T> listPaging(Wrapper<T> queryWrapper);
 
-    List<B> listPaging(Q query);
+    List<B> listPaging(M model);
 }

@@ -1,11 +1,11 @@
 package org.minpoint.muxige.system.core.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.SqlCondition;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
-import org.minpoint.muxige.core.pojo.DateEntity;
+import org.minpoint.muxige.core.pojo.entity.LogicEntity;
 
 /*
  * @ClassName MenuEntity
@@ -17,21 +17,21 @@ import org.minpoint.muxige.core.pojo.DateEntity;
 @Getter
 @Setter
 @TableName(value = "menu_info", schema = "mxg_system_center")
-public class MenuEntity extends DateEntity {
+public class MenuEntity extends LogicEntity {
     /**
      * router名称
      */
-    @TableField( value = "name")
+    @TableField( value = "name", condition = SqlCondition.LIKE)
     private String name;
     /**
      * 页面标题
      */
-    @TableField( value = "title")
+    @TableField( value = "title", condition = SqlCondition.LIKE)
     private String title;
     /**
      * 路径
      */
-    @TableField( value = "path")
+    @TableField( value = "path", condition = SqlCondition.LIKE)
     private String path;
     /**
      * 图标
@@ -48,12 +48,7 @@ public class MenuEntity extends DateEntity {
      */
     @TableField( value = "component")
     private String component;
-    /**
-     * 状态
-     */
-    @TableField( value = "deleted")
-    @TableLogic
-    private Integer deleted;
+
 
     /**
      * 登记

@@ -2,7 +2,7 @@ package org.minpoint.muxige.system.core.pojo.vo;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.minpoint.muxige.core.pojo.BaseVo;
+import org.minpoint.muxige.core.pojo.vo.BaseVo;
 
 import java.util.List;
 

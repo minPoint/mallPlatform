@@ -1,4 +1,7 @@
-package org.minpoint.muxige.core.pojo;
+package org.minpoint.muxige.core.pojo.vo;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /*
  * @ClassName BaseVo
@@ -7,6 +10,8 @@ package org.minpoint.muxige.core.pojo;
  * @version 1.00
  * @since 2021/12/5 13:42
  */
+@Getter
+@Setter
 public class BaseVo {
 
     private String id;

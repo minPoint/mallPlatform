@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.minpoint.muxige.system.core.mapper.MenuMapper">
+<mapper namespace="org.minpoint.muxige.system.core.mapperssssss.MenuMapper">
     <resultMap id="pagingMap" type="org.minpoint.muxige.system.core.pojo.bo.MenuBo">
         <id column="id" property="id" jdbcType="VARCHAR"/>
     </resultMap>

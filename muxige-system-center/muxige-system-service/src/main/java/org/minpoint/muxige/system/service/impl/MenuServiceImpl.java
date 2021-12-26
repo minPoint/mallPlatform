@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.minpoint.muxige.core.exception.MuXiGeException;
 import org.minpoint.muxige.core.exception.SystemStatusEnum;
 import org.minpoint.muxige.core.page.ListData;
+import org.minpoint.muxige.core.util.BaseConvert;
 import org.minpoint.muxige.core.util.JsonUtils;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
+import org.minpoint.muxige.system.core.pojo.query.MenuModel;
 import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
 import org.minpoint.muxige.system.manager.MenuManager;
 import org.minpoint.muxige.system.service.MenuService;
@@ -69,6 +71,6 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public ListData<MenuBo> listMenu(MenuQuery query) {
-        return ListData.setContent(menuManager.listPaging(query));
+        return ListData.setContent(menuManager.listPaging(BaseConvert.convertQueryToModel(query, MenuModel.class)));
     }
 }

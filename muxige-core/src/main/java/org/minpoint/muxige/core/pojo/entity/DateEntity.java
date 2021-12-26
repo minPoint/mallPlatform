@@ -1,4 +1,4 @@
-package org.minpoint.muxige.core.pojo;
+package org.minpoint.muxige.core.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -34,4 +34,11 @@ public class MuXiGeException extends RuntimeException{
         this.errorCode = constantsEnum.getCode();
         this.errorMsg = constantsEnum.getMsg();
     }
+
+
+    public MuXiGeException(Exception e,ConstantsEnumInterface constantsEnum) {
+        super(constantsEnum.toString() + "，" + e);
+        this.errorCode = constantsEnum.getCode();
+        this.errorMsg = constantsEnum.getMsg();
+    }
 }

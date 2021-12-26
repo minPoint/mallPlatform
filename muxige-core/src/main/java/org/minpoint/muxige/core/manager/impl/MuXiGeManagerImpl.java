@@ -1,13 +1,11 @@
 package org.minpoint.muxige.core.manager.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.github.pagehelper.PageHelper;
 import org.minpoint.muxige.core.manager.MuXiGeManager;
 import org.minpoint.muxige.core.mapper.MuXiGeMapper;
-import org.minpoint.muxige.core.pojo.BaseBo;
-import org.minpoint.muxige.core.pojo.BaseEntity;
-import org.minpoint.muxige.core.pojo.BaseQuery;
-import org.minpoint.muxige.core.util.JsonUtils;
+import org.minpoint.muxige.core.pojo.BaseModel;
+import org.minpoint.muxige.core.pojo.bo.BaseBo;
+import org.minpoint.muxige.core.pojo.entity.BaseEntity;
 import org.minpoint.muxige.core.util.PagingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,10 +21,10 @@ import java.util.Map;
  * @version 1.00
  * @since 2021/12/5 14:10
  */
-public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends BaseQuery> implements MuXiGeManager<T, B, Q> {
+public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, M extends BaseModel> implements MuXiGeManager<T, B, M> {
 
     @Autowired
-    private MuXiGeMapper<T, B, Q> mapper;
+    private MuXiGeMapper<T, B, M> mapper;
 
     @Override
     public int insert(T entity) {
@@ -97,8 +95,8 @@ public class MuXiGeManagerImpl<T extends BaseEntity, B extends BaseBo, Q extends
     }
 
     @Override
-    public List<B> listPaging(Q query) {
-        PagingUtils.autoPaging(query);
-        return mapper.listPaging(query);
+    public List<B> listPaging(M model) {
+        PagingUtils.autoPaging(model);
+        return mapper.listPaging(model);
     }
 }

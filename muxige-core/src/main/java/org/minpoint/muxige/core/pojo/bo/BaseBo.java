@@ -1,4 +1,4 @@
-package org.minpoint.muxige.core.pojo;
+package org.minpoint.muxige.core.pojo.bo;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -2,6 +2,7 @@ package org.minpoint.muxige.core.util;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.minpoint.muxige.core.pojo.BaseModel;
 import org.minpoint.muxige.core.pojo.BaseQuery;
 
 /*
@@ -31,9 +32,9 @@ public class PagingUtils {
      * @Param
      * @return
      **/
-    public static void autoPaging(BaseQuery query){
-        if(query.isPaging()){
-            PageHelper.startPage(query.getPageNum(), query.getPageSize());
+    public static void autoPaging(BaseModel model){
+        if(model.isPaging()){
+            PageHelper.startPage(model.getPageNum(), model.getPageSize());
         }else{
             defaultPaging();
         }
