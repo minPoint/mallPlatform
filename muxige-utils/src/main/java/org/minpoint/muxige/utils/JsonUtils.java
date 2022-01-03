@@ -1,4 +1,4 @@
-package org.minpoint.muxige.core.util;
+package org.minpoint.muxige.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
@@ -9,9 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.minpoint.muxige.core.exception.MuXiGeException;
-import org.minpoint.muxige.core.exception.SystemStatusEnum;
-import org.minpoint.muxige.core.page.ListData;
+import org.minpoint.muxige.base.exception.MuXiGeException;
+import org.minpoint.muxige.base.exception.SystemStatusEnum;
 
 import java.util.List;
 

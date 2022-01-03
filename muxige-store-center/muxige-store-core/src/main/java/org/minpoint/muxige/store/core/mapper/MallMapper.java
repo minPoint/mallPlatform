@@ -1,11 +1,10 @@
 package org.minpoint.muxige.store.core.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.minpoint.muxige.core.mapper.MuXiGeMapper;
 import org.minpoint.muxige.store.core.pojo.bo.MallBo;
 import org.minpoint.muxige.store.core.pojo.entity.MallEntity;
 import org.minpoint.muxige.store.core.pojo.query.MallModel;
-import org.minpoint.muxige.store.core.pojo.query.MallQuery;
+import org.minpoint.muxige.core.mapper.MuXiGeMapper;
 
 /*
  * @ClassName MallMapper

@@ -1,4 +1,4 @@
-package org.minpoint.muxige.core.exception;
+package org.minpoint.muxige.base.exception;
 
 /*
  * @ClassName ErrorEnumInterface

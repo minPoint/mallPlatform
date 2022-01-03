@@ -2,7 +2,7 @@ package org.minpoint.muxige.core.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.minpoint.muxige.core.constants.LogicConstants;
+import org.minpoint.muxige.base.constants.LogicConstants;
 
 /*
  * @ClassName BaseQuery

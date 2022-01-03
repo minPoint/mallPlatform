@@ -1,4 +1,4 @@
-package org.minpoint.muxige.core.constants;
+package org.minpoint.muxige.base.constants;
 
 /*
  * @ClassName LogicConstants

@@ -13,6 +13,8 @@
         <module>muxige-union-platform</module>
         <module>muxige-store-center</module>
         <module>muxige-system-center</module>
+        <module>muxige-utils</module>
+        <module>muxige-base</module>
     </modules>
 
     <properties>

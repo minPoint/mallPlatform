@@ -1,16 +1,11 @@
 package org.minpoint.muxige.store.controller;
 
 import org.minpoint.muxige.core.controller.MuXiGeController;
-import org.minpoint.muxige.core.pojo.Result;
-import org.minpoint.muxige.store.core.pojo.query.MallQuery;
 import org.minpoint.muxige.store.service.MallService;
+import org.minpoint.muxige.store.core.pojo.query.MallQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import static org.minpoint.muxige.core.controller.MuXiGeController.ADMIN_PATH;
 import static org.minpoint.muxige.core.controller.MuXiGeController.CTRL_PRODUCT;
 
 /*
@@ -21,7 +16,7 @@ import static org.minpoint.muxige.core.controller.MuXiGeController.CTRL_PRODUCT;
  * @since 2021/12/23 22:41
  */
 @RestController
-@RequestMapping(value = ADMIN_PATH + "mall", produces = CTRL_PRODUCT)
+@RequestMapping(value = MuXiGeController.ADMIN_PATH + "mall", produces = CTRL_PRODUCT)
 public class MallController extends MuXiGeController {
 
     final private MallService mallService;
@@ -32,8 +27,8 @@ public class MallController extends MuXiGeController {
     }
 
     @PostMapping("add")
-    public Object add(MallQuery query){
-        return Result.set(mallService.add(query));
+    public Object add(@RequestBody MallQuery query){
+        return mallService.add(query);
     }
 
     /**
@@ -45,6 +40,6 @@ public class MallController extends MuXiGeController {
      **/
     @GetMapping("list/paging")
     public Object listPaging(MallQuery query){
-        return Result.set(mallService.listInfo(query));
+        return mallService.listInfo(query);
     }
 }

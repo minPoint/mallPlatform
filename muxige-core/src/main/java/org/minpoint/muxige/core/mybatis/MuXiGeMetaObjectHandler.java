@@ -2,7 +2,7 @@ package org.minpoint.muxige.core.mybatis;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
-import org.minpoint.muxige.core.util.DateTimeUtils;
+import org.minpoint.muxige.utils.DateTimeUtils;
 import org.springframework.stereotype.Component;
 
 /*

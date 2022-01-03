@@ -5,8 +5,6 @@ import lombok.Setter;
 import org.minpoint.muxige.core.mybatis.anno.QueryField;
 import org.minpoint.muxige.core.pojo.BaseModel;
 
-import java.util.List;
-
 /*
  * @ClassName MallModel
  * @Description

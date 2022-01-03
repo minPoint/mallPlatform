@@ -3,10 +3,10 @@ package org.minpoint.muxige.core.manager.impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.minpoint.muxige.core.manager.MuXiGeManager;
 import org.minpoint.muxige.core.mapper.MuXiGeMapper;
+import org.minpoint.muxige.core.utils.PagingUtils;
 import org.minpoint.muxige.core.pojo.BaseModel;
 import org.minpoint.muxige.core.pojo.bo.BaseBo;
 import org.minpoint.muxige.core.pojo.entity.BaseEntity;
-import org.minpoint.muxige.core.util.PagingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;

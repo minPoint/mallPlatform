@@ -1,10 +1,9 @@
 package org.minpoint.muxige.system.manager;
 
+import org.minpoint.muxige.system.core.pojo.query.MenuModel;
 import org.minpoint.muxige.core.manager.MuXiGeManager;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
-import org.minpoint.muxige.system.core.pojo.query.MenuModel;
-import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
 
 /*
  * @ClassName MenuManager

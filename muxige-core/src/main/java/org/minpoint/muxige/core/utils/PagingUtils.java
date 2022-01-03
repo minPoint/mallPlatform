@@ -1,9 +1,7 @@
-package org.minpoint.muxige.core.util;
+package org.minpoint.muxige.core.utils;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.minpoint.muxige.core.pojo.BaseModel;
-import org.minpoint.muxige.core.pojo.BaseQuery;
 
 /*
  * @ClassName PagingUtils

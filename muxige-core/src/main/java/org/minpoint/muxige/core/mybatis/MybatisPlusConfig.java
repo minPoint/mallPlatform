@@ -1,11 +1,8 @@
 package org.minpoint.muxige.core.mybatis;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 /*
  * @ClassName MybatisPlusConfig

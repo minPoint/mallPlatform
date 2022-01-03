@@ -3,23 +3,17 @@ package org.minpoint.muxige.core.mybatis.method;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
-import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlSource;
-import org.minpoint.muxige.core.mybatis.CommonSql;
 import org.minpoint.muxige.core.mybatis.anno.QueryField;
 import org.minpoint.muxige.core.mybatis.constants.SqlConditionConstants;
 import org.minpoint.muxige.core.mybatis.constants.SqlScriptConstants;
-import org.minpoint.muxige.core.util.JsonUtils;
+import org.minpoint.muxige.core.mybatis.CommonSql;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /*
  * @ClassName ListPaging

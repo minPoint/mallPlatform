@@ -1,7 +1,6 @@
 package org.minpoint.muxige.core.mybatis;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
-import com.baomidou.mybatisplus.core.injector.AbstractSqlInjector;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
 import org.minpoint.muxige.core.mybatis.method.ListPaging;
 

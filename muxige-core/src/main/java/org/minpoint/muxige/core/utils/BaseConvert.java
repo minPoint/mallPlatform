@@ -1,9 +1,11 @@
-package org.minpoint.muxige.core.util;
+package org.minpoint.muxige.core.utils;
 
-import org.minpoint.muxige.core.exception.MuXiGeException;
-import org.minpoint.muxige.core.exception.SystemStatusEnum;
+import org.minpoint.muxige.base.exception.MuXiGeException;
+import org.minpoint.muxige.base.exception.SystemStatusEnum;
 import org.minpoint.muxige.core.pojo.BaseModel;
 import org.minpoint.muxige.core.pojo.BaseQuery;
+import org.minpoint.muxige.base.exception.MuXiGeException;
+import org.minpoint.muxige.base.exception.SystemStatusEnum;
 import org.springframework.beans.BeanUtils;
 
 /*

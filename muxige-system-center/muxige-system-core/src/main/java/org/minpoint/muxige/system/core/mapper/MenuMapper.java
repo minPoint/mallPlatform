@@ -1,11 +1,10 @@
 package org.minpoint.muxige.system.core.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.minpoint.muxige.core.mapper.MuXiGeMapper;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
 import org.minpoint.muxige.system.core.pojo.query.MenuModel;
-import org.minpoint.muxige.system.core.pojo.query.MenuQuery;
+import org.minpoint.muxige.core.mapper.MuXiGeMapper;
 
 /*
  * @ClassName MenuMapper

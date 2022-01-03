@@ -1,11 +1,10 @@
 package org.minpoint.muxige.core.page;
 
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import lombok.Getter;
 import lombok.Setter;
-import org.minpoint.muxige.core.util.JsonUtils;
+import org.minpoint.muxige.utils.JsonUtils;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ import java.util.List;
 @Setter
 public class ListData<T>{
 
-    private List<T> data;
+    private T content;
 
     private PageInfo pageInfo;
 
@@ -33,15 +32,15 @@ public class ListData<T>{
         return listData;
     }
 
-    public static <T> ListData<T> setContent(List list, Class<T> tClass){
+    public static <T> ListData<T> create(List list, Class<T> tClass){
         ListData listData = ListData.setPage(list);
-        listData.setData(JsonUtils.listToList(list, tClass));
+        listData.setContent(JsonUtils.listToList(list, tClass));
         return listData;
     }
 
-    public static <T> ListData<T> setContent(List list){
+    public static <T> ListData<T> create(List list){
         ListData listData = ListData.setPage(list);
-        listData.setData(list);
+        listData.setContent(list);
         return listData;
     }
 

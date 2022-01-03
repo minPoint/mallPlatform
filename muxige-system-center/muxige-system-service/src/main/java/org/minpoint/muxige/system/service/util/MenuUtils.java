@@ -2,14 +2,11 @@ package org.minpoint.muxige.system.service.util;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.stream.CollectorUtil;
-import cn.hutool.core.util.StrUtil;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
  * @ClassName MenuUtils

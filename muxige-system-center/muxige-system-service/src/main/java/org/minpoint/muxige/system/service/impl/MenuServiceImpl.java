@@ -2,11 +2,11 @@ package org.minpoint.muxige.system.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.minpoint.muxige.core.exception.MuXiGeException;
-import org.minpoint.muxige.core.exception.SystemStatusEnum;
+import org.minpoint.muxige.base.exception.MuXiGeException;
+import org.minpoint.muxige.base.exception.SystemStatusEnum;
 import org.minpoint.muxige.core.page.ListData;
-import org.minpoint.muxige.core.util.BaseConvert;
-import org.minpoint.muxige.core.util.JsonUtils;
+import org.minpoint.muxige.core.utils.BaseConvert;
+import org.minpoint.muxige.utils.JsonUtils;
 import org.minpoint.muxige.system.core.pojo.bo.MenuBo;
 import org.minpoint.muxige.system.core.pojo.entity.MenuEntity;
 import org.minpoint.muxige.system.core.pojo.query.MenuModel;
@@ -28,7 +28,7 @@ import java.util.List;
  * @since 2021/12/8 17:56
  */
 @Service
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService {
 
     @Autowired
     private MenuManager menuManager;
@@ -71,6 +71,6 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public ListData<MenuBo> listMenu(MenuQuery query) {
-        return ListData.setContent(menuManager.listPaging(BaseConvert.convertQueryToModel(query, MenuModel.class)));
+        return ListData.create(menuManager.listPaging(BaseConvert.convertQueryToModel(query, MenuModel.class)));
     }
 }
