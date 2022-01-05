@@ -45,8 +45,8 @@ public class MuXiGeControllerAop {
         Signature signature = joinPoint.getSignature();
         //MethodSignature paramSignature = ((MethodSignature) signature);
         //Object[] params = joinPoint.getArgs();
-        log.info("【请求】时间：{} ip：{} 路径：{} 方式：{}",
-                DateTimeUtils.currentDayStartTimeStamp(), request.getRemoteAddr(), request.getRequestURI()
+        log.info("【请求】ip：{} 路径：{} 方式：{}",
+                request.getRemoteAddr(), request.getRequestURI()
                 , request.getMethod());
 
         MuXiGeResponse muXiGeResponse = null;

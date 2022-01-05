@@ -9,6 +9,7 @@ import org.minpoint.muxige.store.core.pojo.entity.MallEntity;
 import org.minpoint.muxige.store.core.pojo.query.MallModel;
 import org.minpoint.muxige.store.core.pojo.query.MallQuery;
 import org.minpoint.muxige.store.manager.MallManager;
+import org.minpoint.muxige.store.service.constants.MallConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,7 @@ public class MallServiceImpl implements MallService {
     @Override
     public int add(MallQuery query) {
         MallEntity entity = BeanUtil.copyProperties(query, MallEntity.class);
+        entity.setAuditStatus(MallConstants.AUDIT_STATUS.APPROVED);
         return mallManager.insert(entity);
     }
 

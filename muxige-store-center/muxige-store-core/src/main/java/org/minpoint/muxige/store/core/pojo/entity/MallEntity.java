@@ -21,8 +21,8 @@ public class MallEntity extends LogicEntity {
     @TableField( value = "name" )
     private String name;
 
-    @TableField( value = "check_status" )
-    private Integer checkStatus;
+    @TableField( value = "audit_status" )
+    private Short auditStatus;
 
     @TableField( value = "code" )
     private String code;
