@@ -8,8 +8,8 @@ spring:
 #    driver-class-name: com.mysql.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
     username:
-    password:
-    url:test
+    password: test
+    url: test
     #    filters: stat,wall,log4j
     druid:
       # 启动程序时，在连接池中初始化多少个连接
