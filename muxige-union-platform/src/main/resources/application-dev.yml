@@ -7,9 +7,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
 #    driver-class-name: com.mysql.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: qyb
-    password: qyb@muxige..
-    url: jdbc:mysql://101.35.200.252:8819?useUnicode=true&useSSL=false&characterEncoding=utf-8
+    username:
+    password:
+    url: 
     #    filters: stat,wall,log4j
     druid:
       # 启动程序时，在连接池中初始化多少个连接
