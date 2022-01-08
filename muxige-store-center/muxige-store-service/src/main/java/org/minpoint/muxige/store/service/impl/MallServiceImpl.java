@@ -40,6 +40,11 @@ public class MallServiceImpl implements MallService {
     }
 
     @Override
+    public int del(List<String> idList) {
+        return mallManager.deleteBatchIds(idList);
+    }
+
+    @Override
     public ListData<MallBo> listInfo(MallQuery query) {
         List<MallBo> mallBoList = this.mallManager.listPaging(BaseConvert.convertQueryToModel(query, MallModel.class));
         return ListData.create(mallBoList);

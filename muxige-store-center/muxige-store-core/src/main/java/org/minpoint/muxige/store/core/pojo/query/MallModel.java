@@ -2,6 +2,7 @@ package org.minpoint.muxige.store.core.pojo.query;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.minpoint.muxige.core.mybatis.anno.Logic;
 import org.minpoint.muxige.core.mybatis.anno.QueryField;
 import org.minpoint.muxige.core.pojo.BaseModel;
 
@@ -14,6 +15,7 @@ import org.minpoint.muxige.core.pojo.BaseModel;
  */
 @Getter
 @Setter
+@Logic
 public class MallModel extends BaseModel {
     /**
      * 门店名称
@@ -32,5 +34,7 @@ public class MallModel extends BaseModel {
      */
     @QueryField()
     private String code;
+
+
 
 }

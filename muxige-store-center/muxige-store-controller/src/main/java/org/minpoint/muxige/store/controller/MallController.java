@@ -6,6 +6,8 @@ import org.minpoint.muxige.store.core.pojo.query.MallQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.minpoint.muxige.core.controller.MuXiGeController.CTRL_PRODUCT;
 
 /*
@@ -29,6 +31,11 @@ public class MallController extends MuXiGeController {
     @PostMapping("add")
     public Object add(@RequestBody MallQuery query){
         return mallService.add(query);
+    }
+
+    @PostMapping("del")
+    public Object del(@RequestBody List<String> idList){
+        return mallService.del(idList);
     }
 
     /**

@@ -6,10 +6,13 @@ import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlSource;
+import org.minpoint.muxige.core.mybatis.anno.Logic;
 import org.minpoint.muxige.core.mybatis.anno.QueryField;
 import org.minpoint.muxige.core.mybatis.constants.SqlConditionConstants;
 import org.minpoint.muxige.core.mybatis.constants.SqlScriptConstants;
 import org.minpoint.muxige.core.mybatis.CommonSql;
+import org.minpoint.muxige.core.pojo.entity.LogicEntity;
+import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -39,6 +42,13 @@ public class ListPaging extends AbstractMethod {
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 Type typeArgument = actualTypeArguments[2];
                 Class<?> cls = Class.forName(typeArgument.getTypeName());
+                Logic logic = cls.getAnnotation(Logic.class);
+                if(null != logic){
+                    sb.append(String.format(SqlScriptConstants.IF_COMMON_NUMBER.getScript(), "deleted"))
+                            .append(String.format(SqlScriptConstants.COMMON_CONDITION.getScript(), "deleted", "deleted"))
+                                .append(SqlScriptConstants.IF_END.getScript());
+                }
+                // 获取逻辑注解，判断查询是否需要携带逻辑字段
                 Field[] declaredFields = cls.getDeclaredFields();
                 // 遍历model生成SQL
                 for(Field field : declaredFields){

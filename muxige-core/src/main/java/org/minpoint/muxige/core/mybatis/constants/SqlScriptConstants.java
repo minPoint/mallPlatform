@@ -13,6 +13,8 @@ public enum SqlScriptConstants {
 
     WHERE_END("</where>"),
 
+    IF_COMMON_NUMBER("<if test=\" %s != null\">"),
+
     IF_COMMON("<if test=\" %s != null and %s != ''\">"),
 
     COMMON_CONDITION("AND %s = #{%s}"),

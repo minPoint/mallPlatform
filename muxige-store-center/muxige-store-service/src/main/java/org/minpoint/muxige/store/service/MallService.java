@@ -4,6 +4,8 @@ import org.minpoint.muxige.core.page.ListData;
 import org.minpoint.muxige.store.core.pojo.bo.MallBo;
 import org.minpoint.muxige.store.core.pojo.query.MallQuery;
 
+import java.util.List;
+
 /*
  * @ClassName MallService
  * @Description
@@ -20,6 +22,15 @@ public interface MallService {
      * @return int
      **/
     int add(MallQuery query);
+
+    /**
+     * @Author BabyBlackSkin
+     * @Description 删除门店信息
+     * @Date 22:45 2021/12/23
+     * @Param [query]
+     * @return int
+     **/
+    int del(List<String> idList);
     
     /**
      * @Author BabyBlackSkin
